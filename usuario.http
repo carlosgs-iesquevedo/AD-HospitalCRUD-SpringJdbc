@@ -1,0 +1,8 @@
+### Proceso de Login
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+  "username": "patient1",
+  "password": "passwordp1"
+}
