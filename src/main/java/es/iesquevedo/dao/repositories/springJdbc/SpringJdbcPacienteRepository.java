@@ -13,6 +13,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigInteger;
 import java.sql.Date;
 import java.util.List;
 
@@ -45,11 +46,11 @@ public class SpringJdbcPacienteRepository implements PacienteRepository {
         try {
             jdbcClient.sql(SQLQueries.ADD_PACIENTE)
                 .param(1, paciente.getNombre())
-                .param(2, Date.valueOf(paciente.getFechaNacimiento()))
+                .param(2, paciente.getFechaNacimiento())
                 .param(3, paciente.getTelefono())
                 .update(keyHolder, "paciente_id");
 
-            Long idPaciente = keyHolder.getKeyAs(Long.class);
+            Long idPaciente = keyHolder.getKeyAs(BigInteger.class).longValue();
 
             jdbcClient.sql(SQLQueries.ADD_USUARIO)
                 .param(1, paciente.getUsuario().getUsername())
