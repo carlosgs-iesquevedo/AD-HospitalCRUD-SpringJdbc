@@ -1,0 +1,30 @@
+### Todos loe pacientes
+GET http://localhost:8080/pacientes
+
+### Un paciente por su ID
+GET http://localhost:8080/pacientes/1
+
+### Nuevo paciente
+POST http://localhost:8080/pacientes
+Content-Type: application/json
+
+{
+  "nombre": "Paciente Test",
+  "fechaNacimiento": "1990-01-01",
+  "telefono": "123456789",
+  "username": "pacienteTest",
+  "password": "passwordTest"
+}
+
+### Actualización de paciente
+PUT http://localhost:8080/pacientes/1
+Content-Type: application/json
+{
+  "nombre": "Paciente Test Actualizado",
+  "fechaNacimiento": "1990-01-01"
+}
+
+### Borrado de paciente
+DELETE http://localhost:8080/pacientes/1
+
+
